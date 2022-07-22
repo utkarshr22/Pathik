@@ -1,0 +1,296 @@
+/* * is used to apply properties to all tags- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  padding: 0rem 1rem;
+  background-color: transparent !important;
+  /* background-color: rgb(11, 12, 77); */
+  /* background-image: linear-gradient(
+    to bottom right,
+    rgb(22, 6, 65),
+    rgb(45, 80, 126)
+  ); */
+}
+
+.navbar-brand {
+  font-family: "Samarkan", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.navbar-brand img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.nav-link {
+  color: white !important; /* !important is used to add more importance to a property/value than normal. It overrides ALL previous styling rules for that specific property on that element */
+}
+
+.nav-item:hover a {
+  color: #3AB4F2 !important;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#Introduction {
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url("../images/home_page_images/intro-bg.jpg");
+  background-size: cover;
+  margin: 0;
+}
+
+.intro-text {
+  margin: auto;
+  padding: 5rem 40rem 5rem 3rem;
+  /* text-align: center; */
+  color: white;
+}
+
+.intro-title {
+  font-size: 3rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  /* margin: 4rem 2.5rem 1rem; */
+  /* line-height: 1.25; */
+}
+
+.intro-description {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .intro-text {
+    margin: auto;
+    padding-right: 3rem;
+  }
+}
+
+#features {
+  background-color: #f3f3f3;
+}
+
+.feature-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  margin: auto;
+}
+
+.feature-item {
+  padding: 1.5625rem 2.5rem;
+  text-align: center;
+}
+
+.feature-image {
+  margin-bottom: 1rem;
+  max-height: 3.5rem;
+}
+
+#explore {
+  background-color: #f3f3f3;
+  text-align: center;
+  padding-bottom: 3rem;
+  margin: auto;
+}
+
+/* Responsive Grid of explore cards */
+
+.grid-container {
+  margin: auto;
+  max-width: 80rem;
+  --gap: 1rem;
+  --num-cols: 7;
+  --num-rows: 4;
+  --row-height: 7rem;
+
+  box-sizing: border-box;
+  padding: var(--gap);
+
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */ /* Above Line is similar to this */
+  grid-auto-rows: var(--row-height);
+  grid-template-areas:
+    "destination1 destination1 destination1 destination2 destination2 destination2 destination2"
+    "destination1 destination1 destination1 destination2 destination2 destination2 destination2"
+    "destination1 destination1 destination1 destination3 destination3 destination4 destination4"
+    "destination1 destination1 destination1 destination3 destination3 destination4 destination4";
+  gap: var(--gap);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .grid-container {
+    --row-height: 10rem;
+
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: var(--row-height);
+    grid-template-areas:
+      "destination1 destination1"
+      "destination1 destination1"
+      "destination2 destination2"
+      "destination2 destination2"
+      "destination3 destination4"
+      "destination3 destination4";
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    --row-height: 18rem;
+    grid-template-columns: 1fr;
+    grid-auto-rows: var(--row-height);
+    grid-template-areas:
+      "destination1"
+      "destination2"
+      "destination3"
+      "destination4";
+  }
+}
+
+#destination1 {
+  grid-area: destination1;
+}
+
+#destination2 {
+  grid-area: destination2;
+}
+
+#destination3 {
+  grid-area: destination3;
+}
+
+#destination4 {
+  grid-area: destination4;
+}
+
+.grid-container > .grid-item > a > img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  object-fit: fill;
+}
+
+.destinations-image {
+  border-radius: 0.75rem;
+}
+
+.grid-item {
+  border-radius: 0.75rem;
+  position: relative;
+  background-color: black;
+  
+}
+
+.grid-item:hover img {
+  opacity: 0.3;
+  /* box-shadow: 0 0 0; */
+  box-shadow: 10px 10px 5px #3AB4F2;
+}
+
+.grid-item:hover .layer {
+  opacity: 1;
+}
+
+.grid-item img, .layer {
+  /*  ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+      linear - specifies a transition effect with the same speed from start to end
+      ease-in - specifies a transition effect with a slow start
+      ease-out - specifies a transition effect with a slow end
+      ease-in-out - specifies a transition effect with a slow start and end
+      cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function */
+  transition: opacity 0.5s ease-out;
+}
+
+.layer {
+  position: absolute;
+  color: white;
+  left: 0;
+  /* top: 50%; */
+  right: 0;
+  bottom: 0;
+  font-size: 2rem;
+  text-align: center;
+  opacity: 0;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.btn:hover {
+  background-color: #3AB4F2;
+}
+
+#footer {
+
+  /* background-color: rgb(22, 6, 65);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(22, 6, 65),
+    rgb(45, 80, 126)
+  ); */
+  
+  background: #121212;
+  padding: 2rem 2rem 1rem;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-heading a {
+  font-family: "Samarkan", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.footer-navbar a {
+  margin: 0rem 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+}
+
+.footer-social-media {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-social-media a {
+  margin: 0.25rem 0.5rem;
+    padding: 6px 6px 6px 6px;
+    border-radius: 100%;
+    border: 1px solid #3AB4F2;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 4rem;
+}
+
+.footer-navbar-item:hover {
+  color: #3AB4F2 !important;
+}
